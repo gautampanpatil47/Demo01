@@ -1,6 +1,6 @@
 FROM node:latest
 
-RUN echo "Tryin to build my first application 1011"
+RUN echo "Tryin to build my first application "
 
 COPY . /var/www
 
