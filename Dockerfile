@@ -1,13 +1,28 @@
-FROM node:latest
+# FROM node:16
 
-RUN echo "Tryin to build my first application "
+# # Create app directory
+# WORKDIR /app
 
-COPY . /var/www
+# # Install app dependencies
+# # A wildcard is used to ensure both package.json AND package-lock.json are copied
+# # where available (npm@5+)
+# #COPY package*.json ./
 
-WORKDIR /var/www
+# COPY  . /app 
 
+# RUN npm install
+# # If you are building your code for production
+# # RUN npm ci --only=production
+# # Bundle app source
+
+# EXPOSE 9005
+# ENTRYPOINT ["node"]
+# CMD ["app.js"]
+
+FROM node:16
+WORKDIR /usr/app
+COPY . /usr/app
 RUN npm install
-
-EXPOSE 3000
-
-ENTRYPOINT ["node",".\app.js"]
+EXPOSE 8080
+ENTRYPOINT ["node"]
+CMD ["app.js"]
